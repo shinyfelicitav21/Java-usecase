@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 public class FruitGenerics implements Comparable <FruitGenerics> {
-		String fname,ftype,fcolor,fdname,expdate;
+		String fname,ftype,fcolor,fdname,expdate,location;
 		int fcost,fqnty;
 		double fweight;
 		     public int getFcost() {
@@ -15,7 +15,7 @@ public class FruitGenerics implements Comparable <FruitGenerics> {
 			this.fcost = fcost;
 		}
 			public FruitGenerics(String fname, String ftype, String fcolor, String fdname,String expdate, int fcost, int fqnty,
-				double fweight) {
+				double fweight,String location) {
 			super();
 			this.fname = fname;
 			this.ftype = ftype;
@@ -25,12 +25,13 @@ public class FruitGenerics implements Comparable <FruitGenerics> {
 			this.fcost = fcost;
 			this.fqnty = fqnty;
 			this.fweight = fweight;
+			this.location=location;
 		}
 	public static void main(String[] args) {
 		System.out.println("ABC FRUIT SHOP VERSION-2.");
 		System.out.println("-------------------------");
 		Scanner sc=new Scanner(System.in);
-		String fname="", ftype="",fcolor="",fdname="",expdate="";
+		String fname="", ftype="",fcolor="",fdname="",expdate="",location="";
 		int fcost=0,fqnty=0;
 		double fweight=0.0;
 		int n=2;
@@ -53,7 +54,9 @@ public class FruitGenerics implements Comparable <FruitGenerics> {
 	         expdate=sc.next();
 	          System.out.println("Enter distributor name:");
 	          fdname=sc.next();
-	        al.add(new FruitGenerics(fname,ftype,fcolor,fdname,expdate,fcost,fqnty,fweight));
+	          System.out.println("Enter the location:");
+	          location=sc.next();
+	        al.add(new FruitGenerics(fname,ftype,fcolor,fdname,expdate,fcost,fqnty,fweight,location));
 	        hash.put(0,al);
 	       // System.out.println(al);
 	       // System.out.println(hash);
@@ -69,7 +72,7 @@ public class FruitGenerics implements Comparable <FruitGenerics> {
 		@Override
 	     public String toString() {
 	     return "Fruit: [Fname=" + fname + ", Ftype=" + ftype + ", Fcolor=" + fcolor
-	     + ", Fcost=" + fcost + ", Fweight=" + fweight + ", Exp.Date=" + expdate + ", FDname=" + fdname + "]";
+	     + ", Fcost=" + fcost + ", Fweight=" + fweight + ", Exp.Date=" + expdate + ", FDname=" + fdname + ",Location=" + location + "]";
 	     }
 		public boolean equals(FruitGenerics obj)
 	    {
