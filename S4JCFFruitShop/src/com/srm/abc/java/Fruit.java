@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 public class Fruit implements Comparable <Fruit> {
-	String fname,ftype,fcolor,fdname;
+	String fname,ftype,fcolor,fdname,location;
      static Date expdate;
 	int fcost,fqnty;
 	double fweight;
@@ -15,7 +15,7 @@ public class Fruit implements Comparable <Fruit> {
 		this.fcost = fcost;
 	}
 		public Fruit(String fname, String ftype, String fcolor, String fdname,Date expdate, int fcost, int fqnty,
-			double fweight) {
+			double fweight,String location) {
 		super();
 		this.fname = fname;
 		this.ftype = ftype;
@@ -25,12 +25,13 @@ public class Fruit implements Comparable <Fruit> {
 		this.fcost = fcost;
 		this.fqnty = fqnty;
 		this.fweight = fweight;
+		this.location=location;
 	}
 		public static void main(String args[]) { 
 			System.out.println("ABC FRUIT SHOP.");
 			System.out.println("---------------");
 		Scanner sc=new Scanner(System.in);
-		String fname="", ftype="",fcolor="",fdname="";
+		String fname="", ftype="",fcolor="",fdname="",location="";
 		Date expdate=new Date();
 		int fcost=0,fqnty=0;
 		double fweight=0.0;
@@ -51,7 +52,9 @@ public class Fruit implements Comparable <Fruit> {
 	         //expdate=sc.next();
 	          System.out.println("Enter distributor name:");
 	          fdname=sc.next();
-	      list.add(new Fruit(fname,ftype,fcolor,fdname,expdate,fcost,fqnty,fweight));  
+	          System.out.println("Enter the location:");
+	          location=sc.next();
+	      list.add(new Fruit(fname,ftype,fcolor,fdname,expdate,fcost,fqnty,fweight,location));  
 	    }
 	    MethodTest mt=new MethodTest();
 	    mt.addData(list);
@@ -60,11 +63,11 @@ public class Fruit implements Comparable <Fruit> {
 	    {
 	    System.out.println(list.get(i));
 	    }
-	     } 
-	     public String toString() {
+		}
+	    public String toString() {
 	     return "Fruit: [Fname=" + fname + ", Ftype=" + ftype + ", Fcolor=" + fcolor
-	     + ", Fcost=" + fcost + ", Fweight=" + fweight + ", Exp.Date=" + expdate + ", FDname=" + fdname + "]";
-	     }
+	     + ", Fcost=" + fcost + ", Fweight=" + fweight + ", Exp.Date=" + expdate + ", FDname=" + fdname + ",Location=" + location + "]";
+		}
 	     public int compareTo(Fruit fc) {
 	 		int res = 0;
 	         if (this.fcost < fc.getFcost()) {
@@ -75,5 +78,6 @@ public class Fruit implements Comparable <Fruit> {
 	         }
 	         return res;
 	     }
+		
 }
 
