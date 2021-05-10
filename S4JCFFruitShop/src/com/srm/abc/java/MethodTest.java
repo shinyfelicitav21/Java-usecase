@@ -3,7 +3,6 @@ import java.util.ArrayList;
 import java.util.List;
 public class MethodTest {
 	public void addData(List list) {
-		System.out.println("--------------------");
 		System.out.println("Fetching!!!");
 		for(int i=0;i<list.size();i++) {
 			System.out.println(list);

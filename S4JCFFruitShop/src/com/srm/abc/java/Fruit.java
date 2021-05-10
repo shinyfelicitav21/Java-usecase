@@ -54,6 +54,7 @@ public class Fruit implements Comparable <Fruit> {
 	          fdname=sc.next();
 	          System.out.println("Enter the location:");
 	          location=sc.next();
+	      	System.out.println("--------------------------");
 	      list.add(new Fruit(fname,ftype,fcolor,fdname,expdate,fcost,fqnty,fweight,location));  
 	    }
 	    MethodTest mt=new MethodTest();
