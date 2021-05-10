@@ -87,6 +87,7 @@ System.out.println("-----------------------------------------------------------"
 	  System.out.println("No records found..");
   }
 }
+
 private int getId() {
 	return 0;
 }
@@ -108,6 +109,7 @@ System.out.println("Names changed to uppercase!!");
 	 al.stream().filter((customer) -> customer.pno.startsWith("99")&& customer.baseCntry1.equals("Norway"))
 	 .sorted(compareByName).collect(Collectors.toList()).forEach(System.out::println);	
 	}
+
 public void searchCntryDes(ArrayList<Customer> al) {	
 }
 public void searchCntryDes1(ArrayList<Customer> al) {
