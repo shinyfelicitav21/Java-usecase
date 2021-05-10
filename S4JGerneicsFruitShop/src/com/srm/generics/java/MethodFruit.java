@@ -12,7 +12,6 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 public class MethodFruit {
 	public void addData(Map<Integer, List<FruitGenerics>> hash) {
-		System.out.println("--------------------");
 		System.out.println("Sorted Details!!");
 		for(int i=0;i<hash.size();i++)
 		{

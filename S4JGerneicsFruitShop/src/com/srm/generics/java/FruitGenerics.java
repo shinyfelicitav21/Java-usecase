@@ -56,6 +56,7 @@ public class FruitGenerics implements Comparable <FruitGenerics> {
 	          fdname=sc.next();
 	          System.out.println("Enter the location:");
 	          location=sc.next();
+	          System.out.println("---------------------------");
 	        al.add(new FruitGenerics(fname,ftype,fcolor,fdname,expdate,fcost,fqnty,fweight,location));
 	        hash.put(0,al);
 	       // System.out.println(al);
