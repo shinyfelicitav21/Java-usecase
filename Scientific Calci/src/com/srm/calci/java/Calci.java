@@ -1,41 +1,39 @@
 package com.srm.calci.java;
-
 import java.util.Scanner;
-
 public class Calci {
-
 	public static void main(String[] args) {
+		System.out.println("SCIENTIFIC CALCULATOR.");
+		System.out.println("----------------------");
 		Scanner sc=new Scanner(System.in);
 		Sum sum=new Sum();
-				
-		System.out.println("Enter the no.to invoke methods:");
+		Divide div=new Divide();
+		SquareRoot sqrt=new SquareRoot();
+		CubeRoot cbrt=new CubeRoot();
+		Cos cos= new Cos();
+		Tan tan=new Tan();
+		System.out.println("Enter the number to perform operation:");
         int n= sc.nextInt();
         switch (n) {
             case 1:
             	sum.Sum();
                 break;
             case 2:
-            	
+            	div.divide();
                 break;
             case 3:
-            	cc.searchCntryDes11(al);
+            	sqrt.SqrtRoot();
                 break;
             case 4:
-            	cc.searchCntryDes2(al);
+            	cbrt.CbrtRoot();
                 break;
             case 5:
-            	cc.fectchingDetails(al);
+            	cos.cos();
                 break;
             case 6:
-            	cc.fectchingDetails11(al);
+            	tan.tan();
                 break;
-            case 7:
-            	cc.sortDetails1(al);
-            
             default:
-                System.out.println("Input no.corresponding operation, please re-enter:");
+                System.out.println("Please enter the valid number!!");
         }
-
+        }
 	}
-
-}
