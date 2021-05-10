@@ -4,16 +4,17 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
 public class ReportGeneration {
+	
 	String cid,category;
 	Date datetime=new Date();
 	int id;
 	String description;
 	int qnty;
-	float costpitem;
+	double costpitem;
 	double total;
 	
-	public ReportGeneration(String cid, Date datetime, int id,String category, String description, int qnty,
-			float costpitem, double total) {
+	public ReportGeneration(String cid, Date datetime, int id,String category, String description, int qnty,double costpitem, double total)
+	{
 		super();
 		this.cid = cid;
 		this.category = category;
@@ -24,11 +25,19 @@ public class ReportGeneration {
 		this.costpitem = costpitem;
 		this.total = total;
 	}
+	
+	
+	public ReportGeneration() {
+		super();
+	}
+
+
 	@Override
 	public String toString() {
 		return "ReportGeneration :[CID=" + cid + ", Date=" + datetime + ", ID=" + id + ",Category=" + category + ", Description=" + description
 				+ ", Quantity=" + qnty + ", Cost.per.item=" + costpitem + ", Total=" + total + ",]";
 	}
+	
 	public String getCategory() {
 		return category;
 	}
@@ -65,10 +74,10 @@ public class ReportGeneration {
 	public void setQnty(int qnty) {
 		this.qnty = qnty;
 	}
-	public float getCostpitem() {
+	public double getCostpitem() {
 		return costpitem;
 	}
-	public void setCostpitem(float costpitem) {
+	public void setCostpitem(double costpitem) {
 		this.costpitem = costpitem;
 	}
 	public double getTotal() {
@@ -77,9 +86,11 @@ public class ReportGeneration {
 	public void setTotal(double total) {
 		this.total = total;
 	}
+	
 	public static void main(String[] args) {
-		System.out.println("SALES REPORT GENERATION.");
-		System.out.println("------------------------");
+	System.out.println("SALES REPORT GENERATION.");
+	System.out.println("------------------------");
+	
 		String cid = "";
 		Date datetime = new Date();
 		int id = 0;
@@ -89,36 +100,46 @@ public class ReportGeneration {
 		float costpitem = 0;
 		double total = 0.0;
 		double gtotal = 0;
+		
 		ArrayList<ReportGeneration> al = new ArrayList<ReportGeneration>();
+		
 		Scanner sc = new Scanner(System.in);
+		
 		System.out.println("Enter the customer.id:");
 		cid = sc.nextLine();
+		
 		System.out.println("Enter the no.of.items:");
 		int n = sc.nextInt();
-		double gst = 0.0;
+		
 		System.out.println("Enter the GST amount:");
-		gst = sc.nextDouble();
-		for (int i = 0; i < n; i++) {
+		double gst = sc.nextDouble();
+		
+		for (int i = 0; i < n; i++) 
+		{
 			System.out.println("Enter the id.no:");
 			id = sc.nextInt();
+			
 			System.out.println("Enter the category:");
 			category=sc.next();
+			
 			System.out.println("Enter the description:");
 			description = sc.next();
+			
 			System.out.println("Enter the no.of.quantity:");
 			qnty = sc.nextInt();
+			
 			System.out.println("Enter the cost.per.item:");
 			costpitem = sc.nextInt();
+			
 			total = qnty * costpitem;
 			System.out.println("Total amount:" + total);
 			System.out.println("------------------------");
-		}
-		 gst=gst/100;
-         //System.out.println(gst);
-		   double calgst=gst*total;
-		//   System.out.println(calgst);
-		 gtotal=total+calgst+calgst;
+		
+		
 		al.add(new ReportGeneration(cid, datetime, id,category, description, qnty, costpitem, total));
+		
+		}
+		
 		System.out.println("\t\t\t\t\tE-Mart.");
 		System.out.println("\t\t\t\t123 Avenue CA District. ");
 		System.out.println(
@@ -128,11 +149,23 @@ public class ReportGeneration {
 		System.out.println(
 				"--------------------------------------------------------------------------------------------");
 		System.out.println("ID\tDescription\tQuantity\t Cost.Per.Item\tTotal");
+		
 		for (int i = 0; i < al.size(); i++) {
-			System.out.println(id + "\t " + description + "\t\t" + qnty + "\t\t" + costpitem + "\t\t" + total);
+			ReportGeneration rg=al.get(i);
+			System.out.println(rg.getId() + "\t " + rg.getDescription() + "\t\t" + rg.getQnty() + "\t\t" + rg.getCostpitem() + "\t\t" + rg.getTotal());
 		}
+		//double gst = 0.0;
+		 gst=gst/100;
+        //System.out.println(gst);
+		   double calgst=gst*total;
+		//   System.out.println(calgst);
+		 gtotal=total+calgst+calgst;
+		 
+		 TotalCalculation tc=new TotalCalculation();
+		 int total1=tc.getTotal(al);
+		
 		System.out.println("\t\t\t\t\t---------------------------------------");
-		System.out.println("\t\t\t\t         Total: \t" +     total);
+		System.out.println("\t\t\t\t          Total: \t" +total1);
 		System.out.println("\t\t\t\t\t S GST(%6): \t" + calgst);
 		System.out.println("\t\t\t\t\t C GST(%6): \t" + total);
 		System.out.println("\t\t\t\t\t---------------------------------------");
