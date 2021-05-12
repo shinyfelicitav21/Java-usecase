@@ -48,6 +48,7 @@ private void doTheWork(TextFile tf) throws FileNoFoundException {
 	while((line = br.readLine()) != null) {
 		System.out.println(line);
 		contents = line.split(",");
+		
 		if(!contents[0].equalsIgnoreCase("id")){
 			
 		LineData ldata = new LineData(Integer.parseInt(contents[0]),contents[1],contents[2],Integer.parseInt(contents[3]));
@@ -60,7 +61,7 @@ private void doTheWork(TextFile tf) throws FileNoFoundException {
 }catch(FileNotFoundException fe)
  	{
 	
-		System.out.println("Error");
+		System.out.println("An Error Occured!!");
 		fe.printStackTrace();
 	}
 	

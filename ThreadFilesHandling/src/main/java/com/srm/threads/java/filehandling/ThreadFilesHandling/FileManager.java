@@ -43,29 +43,31 @@ public  class FileManager extends BaseManager {
 	 
  }
 public void writeFinalResults(TreeMap<LineData,Integer> tMap) throws IOException {
+	
 	BufferedWriter out;
-	out = new BufferedWriter(new FileWriter(FILE_FOLDER.concat("op"+ System.currentTimeMillis() + ".csv")));
+	out = new BufferedWriter(new FileWriter(FILE_FOLDER.concat("OP_"+ System.currentTimeMillis() + ".csv")));
 	Set set = tMap.entrySet();
 	Iterator it = set.iterator();
 	StringBuffer sb =  new StringBuffer();
+	
 	while(it.hasNext()) {
+		
 		Map.Entry me = (Entry) it.next();
 		LineData ldata = (LineData)me.getKey();
 		
-		
 		sb.append(ldata.getId());
-		sb.append(DELIMITER );
+		sb.append(DELIMITER);
 		sb.append(ldata.getName());
-		sb.append(DELIMITER );
-		
+		sb.append(DELIMITER);
 		sb.append(ldata.getEmail());
-		sb.append(DELIMITER );
+		sb.append(DELIMITER);
 		sb.append(ldata.getAge());
 		sb.append("\n");
 		
 		out.write(sb.toString() );
 		sb.setLength(0);
 	}
+	
 out.close();
 }
 
@@ -75,7 +77,8 @@ out.close();
 			
 		new FileManager().doRun();
 		
-		}catch(Exception e)
+		}
+		catch(Exception e)
 		{
 			e.printStackTrace();
 		}
